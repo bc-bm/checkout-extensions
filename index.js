@@ -3,7 +3,7 @@ const ExtensionCommandType = {
   ReloadCheckout: "EXTENSION:RELOAD_CHECKOUT",
   ShowLoadingIndicator: "EXTENSION:SHOW_LOADING_INDICATOR",
   SetIframeStyle: "EXTENSION:SET_IFRAME_STYLE",
-  ReRenderShippingForm: "RE_RENDER_SHIPPING_FORM"
+  ReRenderShippingForm: "EXTENSION:RE_RENDER_SHIPPING_FORM"
 }
 
 checkoutKitLoader.load('extension').then(async function (module) {
