@@ -3,7 +3,8 @@ const ExtensionCommandType = {
   ReloadCheckout: "EXTENSION:RELOAD_CHECKOUT",
   ShowLoadingIndicator: "EXTENSION:SHOW_LOADING_INDICATOR",
   SetIframeStyle: "EXTENSION:SET_IFRAME_STYLE",
-  ReRenderShippingForm: "EXTENSION:RE_RENDER_SHIPPING_FORM"
+  ReRenderShippingForm: "EXTENSION:RE_RENDER_SHIPPING_FORM",
+  MoveToBillingStep: "EXTENSION:MOVE_TO_BILLING_STEP"
 }
 
 checkoutKitLoader.load('extension').then(async function (module) {
@@ -29,13 +30,25 @@ checkoutKitLoader.load('extension').then(async function (module) {
     }
   );
 
-  // reload checkout
+  // re-render shipping form
   const reRenderShippingForm = document.getElementById('rerender-shipping-form');
   reRenderShippingForm.addEventListener(
     'click',
     function () {
       console.log('re-render shipping form');
       extensionService.post({ type: ExtensionCommandType.ReRenderShippingForm });
+    }
+  );
+
+  
+
+  // re-render shipping form
+  const moveToBillingStep = document.getElementById('move-to-billing-step');
+  moveToBillingStep.addEventListener(
+    'click',
+    function () {
+      console.log('move to billing step');
+      extensionService.post({ type: ExtensionCommandType.MoveToBillingStep });
     }
   );
 
