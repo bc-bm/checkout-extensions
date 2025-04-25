@@ -57,7 +57,7 @@ checkoutKitLoader.load('extension').then(async function (module) {
   const getCheckoutButton = document.getElementById('get-checkout-object');
    getCheckoutButton.addEventListener(
     'click',
-    function () {
+    async function () {
       console.log('Attempting to get checkout object..');
 
       const module = await checkoutKitLoader.load('checkout-sdk');
