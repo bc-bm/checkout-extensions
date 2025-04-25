@@ -52,6 +52,22 @@ checkoutKitLoader.load('extension').then(async function (module) {
     }
   );
 
+
+  
+  const getCheckoutButton = document.getElementById('get-checkout-object');
+   getCheckoutButton.addEventListener(
+    'click',
+    function () {
+      console.log('Attempting to get checkout object..');
+
+      const module = await checkoutKitLoader.load('checkout-sdk');
+      const service = module.createCheckoutService();
+      const state = await service.loadCheckout(cartId);
+      console.log('Checkout object : ',state.data.getCheckout());
+      
+    }
+  );
+
   
 
 
