@@ -70,7 +70,7 @@ checkoutKitLoader.load('extension').then(async function (module) {
   headers: {Accept: 'application/json', 'Content-Type': 'application/json'}
 };
 
-fetch('https://store.balajimohan.com/api/storefront/checkouts/'cartId+, options)
+fetch('https://store.balajimohan.com/api/storefront/checkouts/'+cartId, options)
   .then(response => response.json())
   .then(response => console.log(response))
   .catch(err => console.error(err));
