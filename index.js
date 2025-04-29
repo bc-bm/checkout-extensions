@@ -60,10 +60,20 @@ checkoutKitLoader.load('extension').then(async function (module) {
     async function () {
       console.log('Attempting to get checkout object..');
 
-      const module = await checkoutKitLoader.load('checkout-sdk');
-      const service = module.createCheckoutService();
-      const state = await service.loadCheckout(cartId);
-      console.log('Checkout object : ',state.data.getCheckout());
+      // const module = await checkoutKitLoader.load('checkout-sdk');
+      // const service = module.createCheckoutService();
+      // const state = await service.loadCheckout(cartId);
+      // console.log('Checkout object : ',state.data.getCheckout());
+
+      const options = {
+  method: 'GET',
+  headers: {Accept: 'application/json', 'Content-Type': 'application/json'}
+};
+
+fetch('https://store.balajimohan.com/api/storefront/checkouts/'cartId+, options)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err));
       
     }
   );
