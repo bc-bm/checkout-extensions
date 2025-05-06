@@ -40,46 +40,6 @@ checkoutKitLoader.load('extension').then(async function (module) {
     }
   );
 
-  
-
-  // re-render shipping form
-  const moveToBillingStep = document.getElementById('move-to-billing-step');
-  moveToBillingStep.addEventListener(
-    'click',
-    function () {
-      console.log('move to billing step');
-      extensionService.post({ type: ExtensionCommandType.MoveToBillingStep });
-    }
-  );
-
-
-  
-  const getCheckoutButton = document.getElementById('get-checkout-object');
-   getCheckoutButton.addEventListener(
-    'click',
-    async function () {
-      console.log('Attempting to get checkout object..');
-
-      // const module = await checkoutKitLoader.load('checkout-sdk');
-      // const service = module.createCheckoutService();
-      // const state = await service.loadCheckout(cartId);
-      // console.log('Checkout object : ',state.data.getCheckout());
-
-      const options = {
-  method: 'GET',
-  headers: {Accept: 'application/json', 'Content-Type': 'application/json'}
-};
-
-fetch('https://store.balajimohan.com/api/storefront/checkouts/'+cartId, options)
-  .then(response => response.json())
-  .then(response => console.log(response))
-  .catch(err => console.error(err));
-      
-    }
-  );
-
-  
-
 
   extensionService.addListener('EXTENSION:CONSIGNMENTS_CHANGED', async (data) => {
 
