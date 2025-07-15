@@ -4,7 +4,7 @@ const ExtensionCommandType = {
   ShowLoadingIndicator: "EXTENSION:SHOW_LOADING_INDICATOR",
   SetIframeStyle: "EXTENSION:SET_IFRAME_STYLE",
   ReRenderShippingForm: "EXTENSION:RE_RENDER_SHIPPING_FORM",
-  MoveToBillingStep: "EXTENSION:MOVE_TO_BILLING_STEP"
+  ReRenderShippingStep = 'EXTENSION:RE_RENDER_SHIPPING_STEP',
 }
 
 checkoutKitLoader.load('extension').then(async function (module) {
@@ -39,6 +39,18 @@ checkoutKitLoader.load('extension').then(async function (module) {
       extensionService.post({ type: ExtensionCommandType.ReRenderShippingForm });
     }
   );
+
+   // re-render shipping step
+  const reRenderShippingStep = document.getElementById('rerender-shipping-step');
+  reRenderShippingStep.addEventListener(
+    'click',
+    function () {
+      console.log('re-render shipping step');
+      extensionService.post({ type: ExtensionCommandType.ReRenderShippingStep });
+    }
+  );
+
+  
 
 
   extensionService.addListener('EXTENSION:CONSIGNMENTS_CHANGED', async (data) => {
