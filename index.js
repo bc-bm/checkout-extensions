@@ -4,7 +4,7 @@ const ExtensionCommandType = {
   ShowLoadingIndicator: "EXTENSION:SHOW_LOADING_INDICATOR",
   SetIframeStyle: "EXTENSION:SET_IFRAME_STYLE",
   ReRenderShippingForm: "EXTENSION:RE_RENDER_SHIPPING_FORM",
-  ReRenderShippingStep = 'EXTENSION:RE_RENDER_SHIPPING_STEP',
+  ReRenderShippingStep: "EXTENSION:RE_RENDER_SHIPPING_STEP",
 }
 
 checkoutKitLoader.load('extension').then(async function (module) {
